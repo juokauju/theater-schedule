@@ -56,7 +56,7 @@ class CoreDataPersistence: NSObject {
     }
     
     func fetchObject<T: NSManagedObject>(by id: UUID) -> T? {
-        let predicate = NSPredicate(format: "id == \(id)")
+        let predicate = NSPredicate(format: "id == %@", id.uuidString)
         let result: [T]? = self.fetch(where: NSCompoundPredicate(andPredicateWithSubpredicates: [predicate]))
         return result?.first
     }

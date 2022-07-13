@@ -15,7 +15,7 @@ class ViewModel: ObservableObject {
     @Published var error: Error?
 
     @Published var formViewModel = FormViewModel()
-    var listViewModel = ListViewModel()
+
     
     private var manager: PersistancePresentable
     
@@ -33,8 +33,17 @@ class ViewModel: ObservableObject {
         print("manager saved")
     }
     
-    public func delete() {
+    public func delete(at offsets: IndexSet) {
+        var deleted = false
         
+        for index in offsets {
+            let performance = performances[index]
+            deleted = manager.delete(performance)
+        }
+        
+        if deleted {
+            fetch()
+        }
     }
     
     public func fetch(){
@@ -44,7 +53,7 @@ class ViewModel: ObservableObject {
     
     func reload() async {
 //        do {
-            performances = await manager.getAll()
+        await performances = manager.getAll()
 //            error = nil
 //        } catch {
 //            self.error = error

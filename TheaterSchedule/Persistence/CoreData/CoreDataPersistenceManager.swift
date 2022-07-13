@@ -18,9 +18,10 @@ class CoreDataPersistenceManager: PersistancePresentable {
         CoreDataPersistence.shared.saveContext()
     }
     
-    func delete(_ performance: PerformanceEntity) {
-        guard let performance: Performance = CoreDataPersistence.shared.fetchObject(by: performance.id) else { return }
+    func delete(_ performance: PerformanceEntity) -> Bool {
+        guard let performance: Performance = CoreDataPersistence.shared.fetchObject(by: performance.id) else { return false }
         CoreDataPersistence.shared.delete(performance)
+        return true
     }
     
     func get(by id: UUID) -> PerformanceEntity? {

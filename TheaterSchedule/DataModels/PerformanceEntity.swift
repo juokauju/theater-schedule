@@ -6,50 +6,6 @@
 //
 
 import SwiftUI
-
-
-
-
-
-//class ViewModel: ObservableObject {
-//
-//    //MARK: Properties
-//
-//    struct DataEntry {
-//
-//    }
-//
-//    @Published var dateEntries = [DataEntry]()
-//
-//    @Published var name = ""
-//
-//    private var manager: PersistancePresentable
-//
-//    //MARK: Init
-//
-//    init(manager: PersistancePresentable) {
-//        self.manager = manager
-//
-//        dateEntries = manager.getEntries()
-//    }
-//
-//    //MARK: Public
-//    public func save(place: PerformanceEntity.Place, date: Date, team: [String]?) {
-//        let newPerformance = PerformanceEntity(id: UUID(),
-//                                            name: name,
-//                                            place: place,
-//                                            date: date,
-//                                            team: team)
-//        dateEntries.append(entries)
-//        manager.save(newPerformance)
-//    }
-//
-//    public func delete() {
-////        manager.delete(<#PerformanceLog#>)
-//    }
-//}
-
-
 import Foundation
 
 struct PerformanceEntity: Identifiable {
@@ -70,7 +26,7 @@ struct PerformanceEntity: Identifiable {
     }
     
     //MARK: Convert functions
-
+    
     static func convert(from database: Performance) -> PerformanceEntity? {
         guard let id = database.id,
               let name = database.name,
@@ -94,5 +50,13 @@ struct PerformanceEntity: Identifiable {
         performance.team = self.team
         return performance
     }
+    
+    #if DEBUG
+    static let examples = [
+        PerformanceEntity(id: UUID(), name: "Boksas", place: .naujoji, date: Date(), team: ["Karolis Ziukas"]),
+        PerformanceEntity(id: UUID(), name: "Alisa", place: .mazoji, date: Date.now.addingTimeInterval(86400), team: ["Adomas Gustainis, Karolis Ziukas"]),
+        PerformanceEntity(id: UUID(), name: "Respublika", place: .didzioji, date: Date.now.addingTimeInterval(598400), team: ["Ricard Zigis"])
+    ]
+    #endif
 }
 
