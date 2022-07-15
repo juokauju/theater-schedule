@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PersistancePresentable {
-    func save(_ performance: PerformanceEntity)
+    func save(_ performance: PerformanceEntity) -> Bool
     func delete(_ performance: PerformanceEntity) -> Bool
     func getAll() -> [PerformanceEntity] 
 }

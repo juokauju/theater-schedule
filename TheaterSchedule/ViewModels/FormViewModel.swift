@@ -11,7 +11,7 @@ class FormViewModel: ObservableObject {
     
     //MARK: Properties
     
-    @Published var performanceEntities = [PerformanceEntity]()
+//    @Published var performanceEntities = [PerformanceEntity]()
     @Published var newPerformance = PerformanceEntity(id: UUID(), name: "example", place: PerformanceEntity.Place.naujoji, date: Date())
     
     @Published var name = ""
@@ -28,7 +28,7 @@ class FormViewModel: ObservableObject {
         guard let place = place.init(rawValue: selectedPlace) else { return }
         newPerformance = PerformanceEntity(id: UUID(), name: name, place: place, date: date, team: selectedMembers)
         print("entity added")
-        performanceEntities.append(newPerformance)
+//        performanceEntities.append(newPerformance)
     }
     
     func clearFields() {

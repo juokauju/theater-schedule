@@ -23,20 +23,10 @@ struct PerformancesList: View {
                 }
             }
             .navigationTitle(Text("List"))
-            .onAppear(perform: viewModel.fetch)
-//            .task {
-//                await viewModel.reload()
-//                print("task")
-//            }
-//            .overlay(alignment: .top) {
-//                if viewModel.error != nil {
-//                    ErrorView(error: $viewModel.error)
-//                }
-//            }
-//            .refreshable {
-//                await viewModel.reload()
-//                print("refreshable")
-//            }
+            .refreshable {
+                viewModel.fetch()
+                print("refreshable")
+            }
         }
     }
 }

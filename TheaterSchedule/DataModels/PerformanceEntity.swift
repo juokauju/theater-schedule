@@ -25,7 +25,7 @@ struct PerformanceEntity: Identifiable {
         var id: String { self.rawValue }
     }
     
-    //MARK: Convert functions
+    //MARK: Core Data Convert functions
     
     static func convert(from database: Performance) -> PerformanceEntity? {
         guard let id = database.id,
@@ -50,6 +50,8 @@ struct PerformanceEntity: Identifiable {
         performance.team = self.team
         return performance
     }
+    
+    //MARK: if DEBUG
     
     #if DEBUG
     static let examples = [

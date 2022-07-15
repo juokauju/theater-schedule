@@ -8,18 +8,32 @@
 import SwiftUI
 
 struct PerformanceDetailView: View {
+    @EnvironmentObject var viewModel: ViewModel
     
     var performance: PerformanceEntity
     
     var body: some View {
-        VStack{
-            Text(performance.name)
-                .font(.system(size: 50))
-            Text(performance.place.rawValue)
-                .font(.system(size: 16))
-            Text(Utils.dateFormatter.string(from: performance.date))
+        HStack {
+            VStack(alignment: .leading, spacing: 20 ) {
+                Text(performance.name)
+                    .font(.system(size: 50))
+                Text(performance.place.rawValue)
+                    .font(.system(size: 16))
+                List(viewModel.datesForPerformanceString, id: \.self) { date in
+                    Text(date)
+                }
+                .listStyle(.inset)
+                
+                Spacer()
+            }
             
         }
+        Spacer()
+        
+        .onAppear{
+            viewModel.groupingPerformancesBy(performance.name)
+        }
+        
     }
 }
 

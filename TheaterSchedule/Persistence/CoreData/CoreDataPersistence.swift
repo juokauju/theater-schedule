@@ -43,7 +43,7 @@ class CoreDataPersistence: NSObject {
     
     // MARK: - Core Data Saving support
     
-    func saveContext() {
+    func saveContext() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -51,8 +51,10 @@ class CoreDataPersistence: NSObject {
             } catch {
                 let nserror = error as NSError
                 ErrorHandler.shared.alertErrorMessage(nserror)
+                return false
             }
         }
+        return true
     }
     
     func fetchObject<T: NSManagedObject>(by id: UUID) -> T? {
@@ -82,38 +84,13 @@ class CoreDataPersistence: NSObject {
         }
     }
     
-    func fetchGroup<T: NSManagedObject>(by propertiesToGroup: [String], fetch properties: [String], where predicates: NSCompoundPredicate? = nil, sorting sorters: [NSSortDescriptor]? = nil) -> [T]? {
-        let context = persistentContainer.viewContext
-        let entityName = String(describing: T.self)
-        let request = NSFetchRequest<T>(entityName: entityName)
-        if let conditions = predicates {
-            request.predicate = conditions
-        }
-        if let sortDescriptors = sorters {
-            request.sortDescriptors = sortDescriptors
-        }
-        
-        request.resultType = .dictionaryResultType
-        request.propertiesToFetch = properties
-        request.propertiesToGroupBy = propertiesToGroup
-        
-        do {
-            let records = try context.fetch(request)
-            return records
-        } catch {
-            let nserror = error as NSError
-            ErrorHandler.shared.alertErrorMessage(nserror)
-            return nil
-        }
-    }
-    
     func initManagedObject<T: NSManagedObject>() -> T {
         let managedObj = T(context: persistentContainer.viewContext)
         return managedObj
     }
     
-    func delete(_ object: NSManagedObject) {
+    func delete(_ object: NSManagedObject) -> Bool {
         persistentContainer.viewContext.delete(object)
-        saveContext()
+        return saveContext()
     }
 }

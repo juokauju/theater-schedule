@@ -13,15 +13,14 @@ class CoreDataPersistenceManager: PersistancePresentable {
     
     private init() { }
     
-    func save(_ performance: PerformanceEntity) {
+    func save(_ performance: PerformanceEntity) -> Bool {
         _ = performance.convertToManagedObject()
-        CoreDataPersistence.shared.saveContext()
+        return CoreDataPersistence.shared.saveContext()
     }
     
     func delete(_ performance: PerformanceEntity) -> Bool {
         guard let performance: Performance = CoreDataPersistence.shared.fetchObject(by: performance.id) else { return false }
-        CoreDataPersistence.shared.delete(performance)
-        return true
+        return CoreDataPersistence.shared.delete(performance)
     }
     
     func get(by id: UUID) -> PerformanceEntity? {
@@ -39,15 +38,4 @@ class CoreDataPersistenceManager: PersistancePresentable {
         let performances = database.compactMap { (database) -> PerformanceEntity? in PerformanceEntity.convert(from: database) }
         return performances
     }
-    
-    func getGroup(by propertiesToGroup: [String], fetch properties: [String], in dateOrder: Bool = false) -> [PerformanceEntity] {
-        var sorters: [NSSortDescriptor]? = nil
-        if dateOrder {
-            sorters = [ NSSortDescriptor(key: "date", ascending: true) ]
-        }
-        guard let database: [Performance] = CoreDataPersistence.shared.fetchGroup(by: propertiesToGroup, fetch: properties, sorting: sorters) else { return [] }
-        let performances = database.compactMap { (database) -> PerformanceEntity? in PerformanceEntity.convert(from: database) }
-        return performances
-    }
-
 }

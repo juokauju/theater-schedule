@@ -21,7 +21,6 @@
 		7C74753A287621ED001F831D /* FirebasePersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C747539287621ED001F831D /* FirebasePersistenceManager.swift */; };
 		7C74753C28762246001F831D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74753B28762246001F831D /* ViewModel.swift */; };
 		7C797C982878C63C006FF97B /* FormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C797C972878C63C006FF97B /* FormViewModel.swift */; };
-		7C797CA1287E1119006FF97B /* RefreshActionPerformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C797CA0287E1119006FF97B /* RefreshActionPerformer.swift */; };
 		7C797CA3287E115C006FF97B /* RetryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C797CA2287E115C006FF97B /* RetryButton.swift */; };
 		7C903A0B2874688F008028DA /* MultiSelectPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C903A0A2874688E008028DA /* MultiSelectPickerView.swift */; };
 		7C90513428688681000D3C86 /* CoreDataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C90513328688681000D3C86 /* CoreDataPersistence.swift */; };
@@ -46,7 +45,6 @@
 		7C747539287621ED001F831D /* FirebasePersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePersistenceManager.swift; sourceTree = "<group>"; };
 		7C74753B28762246001F831D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7C797C972878C63C006FF97B /* FormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModel.swift; sourceTree = "<group>"; };
-		7C797CA0287E1119006FF97B /* RefreshActionPerformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshActionPerformer.swift; path = TheaterSchedule/ViewModels/RefreshActionPerformer.swift; sourceTree = SOURCE_ROOT; };
 		7C797CA2287E115C006FF97B /* RetryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryButton.swift; sourceTree = "<group>"; };
 		7C903A0A2874688E008028DA /* MultiSelectPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectPickerView.swift; sourceTree = "<group>"; };
 		7C90513328688681000D3C86 /* CoreDataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPersistence.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			children = (
 				7C74753B28762246001F831D /* ViewModel.swift */,
 				7C797C972878C63C006FF97B /* FormViewModel.swift */,
-				7C797CA0287E1119006FF97B /* RefreshActionPerformer.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -275,7 +272,6 @@
 				7C3BCDE82847F729008CDC7D /* TheaterScheduleApp.swift in Sources */,
 				7C74753A287621ED001F831D /* FirebasePersistenceManager.swift in Sources */,
 				7C40E347286CD95800BCF464 /* PerformanceFormView.swift in Sources */,
-				7C797CA1287E1119006FF97B /* RefreshActionPerformer.swift in Sources */,
 				7C797C982878C63C006FF97B /* FormViewModel.swift in Sources */,
 				7C40E343286CCE7A00BCF464 /* PerformanceDetailView.swift in Sources */,
 				7C90513828688C09000D3C86 /* PerformanceEntity.swift in Sources */,

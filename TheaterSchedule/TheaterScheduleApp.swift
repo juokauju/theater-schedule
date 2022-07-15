@@ -21,7 +21,7 @@ struct TheaterScheduleApp: App {
                 .environmentObject(viewModel)
         }
         .onChange(of: scenePhase) { _ in
-            CoreDataPersistence.shared.saveContext()
+            viewModel.save()
         }
     }
 }

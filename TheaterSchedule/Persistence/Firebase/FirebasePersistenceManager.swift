@@ -15,9 +15,10 @@ class FirebasePersistenceManager: PersistancePresentable {
     }
     
     
-    func save(_ performance: PerformanceEntity) {
+    func save(_ performance: PerformanceEntity) -> Bool {
         assert(false, "Missing firebase implementation")
         print("FirebasePersistenceManager save")
+        return false
     }
     
     func delete(_ performance: PerformanceEntity) -> Bool {

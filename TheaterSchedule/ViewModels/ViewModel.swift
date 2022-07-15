@@ -12,10 +12,11 @@ class ViewModel: ObservableObject {
     //MARK: Properties
     
     @Published var performances = [PerformanceEntity]()
-    @Published var error: Error?
+    @Published var performancesByName = [PerformanceEntity]()
+    var datesForPerformance = [Date]()
+    var datesForPerformanceString = [String]()
 
     @Published var formViewModel = FormViewModel()
-
     
     private var manager: PersistancePresentable
     
@@ -23,14 +24,21 @@ class ViewModel: ObservableObject {
     
     init(manager: PersistancePresentable) {
         self.manager = manager
+        fetch()
     }
     
     //MARK: Public
     
     public func save() {
+        var saved = false
+        
         formViewModel.addEntity()
-        manager.save(formViewModel.newPerformance)
-        print("manager saved")
+        saved = manager.save(formViewModel.newPerformance)
+        
+        if saved {
+            fetch()
+            print("manager saved")
+        }
     }
     
     public func delete(at offsets: IndexSet) {
@@ -47,24 +55,28 @@ class ViewModel: ObservableObject {
     }
     
     public func fetch(){
-        performances = manager.getAll()
-        print("data fetched")
+        DispatchQueue.main.async {
+            self.performances = self.manager.getAll()
+            print("data fetched")
+        }
     }
     
-    func reload() async {
-//        do {
-        await performances = manager.getAll()
-//            error = nil
-//        } catch {
-//            self.error = error
-//        }
+    func groupingPerformancesBy(_ name: String) {
+        let groupingDictionary = Dictionary(grouping: performances, by: { $0.name })
+        if let groupByName = groupingDictionary[name] {
+            performancesByName = groupByName
+            getDates()
+        }
+        
     }
     
-//    func fetchData() -> [PerformanceEntity] {
-//        let dataFromCoreData = CoreDataPersistenceManager.shared.getAll()
-//        let dataEntries = formViewModel.performanceEntities
-//        let allTogetger = dataFromCoreData + dataEntries
-//        let performances = allTogetger.sorted(by: { $0.date < $1.date })
-//        return dataFromCoreData
-    
+    private func getDates() {
+        datesForPerformanceString.removeAll()
+        datesForPerformance = performancesByName.map { $0.date }
+        
+        for date in datesForPerformance {
+            let dateString = Utils.dateFormatter.string(from: date)
+            datesForPerformanceString.append(dateString)
+        }
+    }
 }
