@@ -29,7 +29,7 @@ class CoreDataPersistenceManager: PersistancePresentable {
         return performance
     }
     
-    func getAll() -> [PerformanceEntity] {
+    func fetchPerformances() -> [PerformanceEntity] {
         var sorters: [NSSortDescriptor]? = nil
 //        if dateOrder {
             sorters = [ NSSortDescriptor(key: "date", ascending: true) ]

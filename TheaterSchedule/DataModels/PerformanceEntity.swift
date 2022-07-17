@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-import Foundation
 
 struct PerformanceEntity: Identifiable {
 
-    var id: UUID //?
+    var id: UUID
     var name: String
     var place: Place
     var date: Date
@@ -24,6 +23,7 @@ struct PerformanceEntity: Identifiable {
         
         var id: String { self.rawValue }
     }
+    
     
     //MARK: Core Data Convert functions
     
@@ -50,6 +50,7 @@ struct PerformanceEntity: Identifiable {
         performance.team = self.team
         return performance
     }
+    
     
     //MARK: if DEBUG
     

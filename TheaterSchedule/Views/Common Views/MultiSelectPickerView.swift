@@ -8,27 +8,32 @@
 import SwiftUI
 
 struct MultiSelectPickerView: View {
-    @State var allTeamMembers: [String]
-    @Binding var selectedMembers: [String]
+//    @State var allTeamMembers: [String]
+//    @Binding var selectedMembers: [String]
+    
+    @ObservedObject var formViewModel: FormViewModel
     
     var body: some View {
         Form {
             List {
-                ForEach(allTeamMembers, id: \.self) { member in
+                ForEach(formViewModel.allTeamMembers, id: \.self) { member in
                 Button {
                     withAnimation {
-                        if self.selectedMembers.contains(member) {
-                            self.selectedMembers.removeAll(where: { $0 == member })
+                        // Checks if pressed button title contains selectedMember array. If yes, than it removes it from array, if not, then adds.
+                        if formViewModel.selectedMembers.contains(member) {
+                            formViewModel.selectedMembers.removeAll(where: { $0 == member })
                         } else {
-                            self.selectedMembers.append(member)
+                            formViewModel.selectedMembers.append(member)
+                            print(formViewModel.selectedMembers)
                         }
                     }
                 } label: {
                     HStack {
                         Text(member)
                         Spacer()
+                        // Depending if array of selectedMembers contains pressed button title, checkmark appears or disappears.
                         Image(systemName: "checkmark")
-                            .opacity(self.selectedMembers.contains(member) ? 1.0 : 0.0)
+                            .opacity(formViewModel.selectedMembers.contains(member) ? 1.0 : 0.0)
                     }
                 }
 
@@ -38,16 +43,10 @@ struct MultiSelectPickerView: View {
     }
 }
 
-struct MultiSelectePickerView_PreviewContainer: View {
-    @State private var members = ["Adomas"]
-    
-    var body: some View {
-        MultiSelectPickerView(allTeamMembers:  ["Adomas", "Moze", "Ricka"], selectedMembers: $members)
-    }
-}
-
 struct MultiSelectPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        MultiSelectePickerView_PreviewContainer()
+        let viewModel = FormViewModel()
+        viewModel.selectedMembers.append(viewModel.allTeamMembers.first ?? "Test value")
+        return MultiSelectPickerView(formViewModel: viewModel)
     }
 }

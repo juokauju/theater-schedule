@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PerformanceFormView: View {
     @EnvironmentObject var viewModel: ViewModel
+    @ObservedObject var formViewModel: FormViewModel
     
     @State private var showSaveAlert: Bool = false
     
@@ -16,36 +17,55 @@ struct PerformanceFormView: View {
         NavigationView {
             Form {
                 Section("General info") {
-                    TextField("Title", text: $viewModel.formViewModel.name)
+                    
+            //MARK: TextField
+                    TextField("Title", text: $formViewModel.name)
 
-                    DatePicker("Select date", selection: $viewModel.formViewModel.date, displayedComponents: [.date])
+            //MARK: DatePicker
+                    DatePicker("Select date", selection: $formViewModel.date, displayedComponents: [.date])
+
+                    NavigationLink {
+                        VStack {
+                            Spacer()
+                                .frame(height: 80)
+                            MultiDatePicker(anyDays: $formViewModel.selectedDays, minDate: Date().dayBefore)
+                                .navigationTitle("Select dates")
+                            Spacer()
+                        }
+                        .padding()
+                    } label: {
+                        Text("Select dates")
+                    }
                 }
                 
+            //MARK: Selecting Place
                 Section("Hall") {
-                    Picker("Hall", selection: $viewModel.formViewModel.selectedPlace) {
-                        ForEach(viewModel.formViewModel.place.allCases) { place in
+                    Picker("Hall", selection: $formViewModel.selectedPlace) {
+                        ForEach(formViewModel.place.allCases) { place in
                             Text(place.rawValue.uppercased()).tag(place)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
                 
+            //MARK: MultiSelectPickerView with Employees names
                 Section("Employees") {
                     NavigationLink {
-                        MultiSelectPickerView(allTeamMembers: viewModel.formViewModel.allTeamMembers, selectedMembers: $viewModel.formViewModel.selectedMembers)
+                        MultiSelectPickerView(formViewModel: formViewModel)
                             .navigationTitle("Choose team members")
                     } label: {
                         HStack(alignment: .top) {
                             Text("Video team:")
                             Spacer()
-                            Text(viewModel.formViewModel.selectedMembers.joined(separator: "\n"))
+                            Text(formViewModel.selectedMembers.joined(separator: "\n"))
                         }
                     }
                 }
                 
+            //MARK: Save button
                 Section {
                     Button {
-                        viewModel.save()
+                        formViewModel.saveTapped()
                         showSaveAlert = true
                     } label: {
                         Text("Save")
@@ -54,12 +74,14 @@ struct PerformanceFormView: View {
             }
             
             .navigationTitle(Text("Add"))
-            .alert("Saved!", isPresented: $showSaveAlert) {
+            
+            //MARK: Alert
+            // Would be better if it could check if save method was commited
+            .alert("Done", isPresented: $showSaveAlert) {
                 Button(role: .cancel) {
-                    viewModel.formViewModel.clearFields()
                 } label: {
-                    Text("OK")
-                }
+                Text("OK")
+            }
             }
         }
     }
@@ -68,6 +90,8 @@ struct PerformanceFormView: View {
 
 struct PerformanceFormView_Previews: PreviewProvider {
     static var previews: some View {
-        PerformanceFormView()
+        let viewModel = FormViewModel()
+        PerformanceFormView(formViewModel: viewModel)
     }
 }
+

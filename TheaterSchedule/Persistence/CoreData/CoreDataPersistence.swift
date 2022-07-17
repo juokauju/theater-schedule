@@ -43,7 +43,7 @@ class CoreDataPersistence: NSObject {
     
     // MARK: - Core Data Saving support
     
-    func saveContext() -> Bool {
+    @discardableResult func saveContext() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {

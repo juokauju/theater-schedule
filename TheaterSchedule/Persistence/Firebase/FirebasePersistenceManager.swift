@@ -9,11 +9,10 @@ import Foundation
 
 class FirebasePersistenceManager: PersistancePresentable {
     
-    func getAll() -> [PerformanceEntity] {
+    func fetchPerformances() -> [PerformanceEntity] {
         assert(false, "Missing firebase implementation")
         return [PerformanceEntity]()
     }
-    
     
     func save(_ performance: PerformanceEntity) -> Bool {
         assert(false, "Missing firebase implementation")

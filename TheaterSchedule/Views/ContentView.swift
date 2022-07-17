@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
         TabView {
@@ -16,7 +17,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("", systemImage: "list.bullet")
                 }
-            PerformanceFormView()
+            PerformanceFormView(formViewModel: viewModel.formViewModel)
                 .tabItem {
                     Label("", systemImage: "plus")
                 }

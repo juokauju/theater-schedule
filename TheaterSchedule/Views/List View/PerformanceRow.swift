@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PerformanceRow: View {
-    
     var performance: PerformanceEntity
     
     var body: some View {

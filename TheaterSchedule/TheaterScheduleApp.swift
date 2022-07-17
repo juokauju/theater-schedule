@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct TheaterScheduleApp: App {
-//    let persistence = CoreDataPersistence.shared
     @StateObject private var viewModel = ViewModel(manager: CoreDataPersistenceManager.shared)
     
     @Environment(\.scenePhase) var scenePhase
@@ -17,11 +16,10 @@ struct TheaterScheduleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-//                .environment(\.managedObjectContext, persistence.persistentContainer.viewContext)
                 .environmentObject(viewModel)
         }
         .onChange(of: scenePhase) { _ in
-            viewModel.save()
+            viewModel.savePerformanceEntity()
         }
     }
 }

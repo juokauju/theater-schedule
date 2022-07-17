@@ -17,6 +17,14 @@
 		7C3BCDF42847F72B008CDC7D /* TheaterSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C3BCDF22847F72B008CDC7D /* TheaterSchedule.xcdatamodeld */; };
 		7C40E343286CCE7A00BCF464 /* PerformanceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40E342286CCE7A00BCF464 /* PerformanceDetailView.swift */; };
 		7C40E347286CD95800BCF464 /* PerformanceFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C40E346286CD95800BCF464 /* PerformanceFormView.swift */; };
+		7C73F2AF2882BBED00449695 /* MultiDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2A62882BBED00449695 /* MultiDatePicker.swift */; };
+		7C73F2B02882BBED00449695 /* MDPMonthYearPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2A82882BBED00449695 /* MDPMonthYearPickerButton.swift */; };
+		7C73F2B12882BBED00449695 /* MDPDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2A92882BBED00449695 /* MDPDayView.swift */; };
+		7C73F2B22882BBED00449695 /* MDPMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2AA2882BBED00449695 /* MDPMonthView.swift */; };
+		7C73F2B32882BBED00449695 /* MDPContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2AB2882BBED00449695 /* MDPContentView.swift */; };
+		7C73F2B42882BBED00449695 /* MDPMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2AC2882BBED00449695 /* MDPMonthYearPicker.swift */; };
+		7C73F2B52882BBED00449695 /* MDPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2AD2882BBED00449695 /* MDPModel.swift */; };
+		7C73F2B62882BBED00449695 /* MDPDayOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C73F2AE2882BBED00449695 /* MDPDayOfMonth.swift */; };
 		7C747538287621B0001F831D /* PersistencePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C747537287621B0001F831D /* PersistencePresentable.swift */; };
 		7C74753A287621ED001F831D /* FirebasePersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C747539287621ED001F831D /* FirebasePersistenceManager.swift */; };
 		7C74753C28762246001F831D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74753B28762246001F831D /* ViewModel.swift */; };
@@ -41,6 +49,14 @@
 		7C3BCDF32847F72B008CDC7D /* TheaterSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheaterSchedule.xcdatamodel; sourceTree = "<group>"; };
 		7C40E342286CCE7A00BCF464 /* PerformanceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceDetailView.swift; sourceTree = "<group>"; };
 		7C40E346286CD95800BCF464 /* PerformanceFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceFormView.swift; sourceTree = "<group>"; };
+		7C73F2A62882BBED00449695 /* MultiDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiDatePicker.swift; sourceTree = "<group>"; };
+		7C73F2A82882BBED00449695 /* MDPMonthYearPickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPickerButton.swift; sourceTree = "<group>"; };
+		7C73F2A92882BBED00449695 /* MDPDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayView.swift; sourceTree = "<group>"; };
+		7C73F2AA2882BBED00449695 /* MDPMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthView.swift; sourceTree = "<group>"; };
+		7C73F2AB2882BBED00449695 /* MDPContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPContentView.swift; sourceTree = "<group>"; };
+		7C73F2AC2882BBED00449695 /* MDPMonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPicker.swift; sourceTree = "<group>"; };
+		7C73F2AD2882BBED00449695 /* MDPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPModel.swift; sourceTree = "<group>"; };
+		7C73F2AE2882BBED00449695 /* MDPDayOfMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayOfMonth.swift; sourceTree = "<group>"; };
 		7C747537287621B0001F831D /* PersistencePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencePresentable.swift; sourceTree = "<group>"; };
 		7C747539287621ED001F831D /* FirebasePersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePersistenceManager.swift; sourceTree = "<group>"; };
 		7C74753B28762246001F831D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -89,8 +105,8 @@
 				7C90513C2869D886000D3C86 /* DataModels */,
 				7C797C99287A163C006FF97B /* ViewModels */,
 				7C40E344286CD00E00BCF464 /* Views */,
+				7C73F2A42882BBCF00449695 /* Third Party */,
 				7C3BCDF22847F72B008CDC7D /* TheaterSchedule.xcdatamodeld */,
-				7C40E345286CD66B00BCF464 /* Helpers */,
 				7C3BCDED2847F72B008CDC7D /* Preview Content */,
 			);
 			path = TheaterSchedule;
@@ -122,6 +138,37 @@
 				7C905135286887BF000D3C86 /* ErrorHandler.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7C73F2A42882BBCF00449695 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				7C73F2A52882BBED00449695 /* MultiDatePicker Source */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		7C73F2A52882BBED00449695 /* MultiDatePicker Source */ = {
+			isa = PBXGroup;
+			children = (
+				7C73F2A62882BBED00449695 /* MultiDatePicker.swift */,
+				7C73F2A72882BBED00449695 /* Components */,
+			);
+			path = "MultiDatePicker Source";
+			sourceTree = "<group>";
+		};
+		7C73F2A72882BBED00449695 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7C73F2A82882BBED00449695 /* MDPMonthYearPickerButton.swift */,
+				7C73F2A92882BBED00449695 /* MDPDayView.swift */,
+				7C73F2AA2882BBED00449695 /* MDPMonthView.swift */,
+				7C73F2AB2882BBED00449695 /* MDPContentView.swift */,
+				7C73F2AC2882BBED00449695 /* MDPMonthYearPicker.swift */,
+				7C73F2AD2882BBED00449695 /* MDPModel.swift */,
+				7C73F2AE2882BBED00449695 /* MDPDayOfMonth.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		7C74753D287623DB001F831D /* CoreData */ = {
@@ -182,6 +229,7 @@
 		7C90513C2869D886000D3C86 /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				7C40E345286CD66B00BCF464 /* Helpers */,
 				7C90513728688C09000D3C86 /* PerformanceEntity.swift */,
 			);
 			path = DataModels;
@@ -257,11 +305,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C73F2B62882BBED00449695 /* MDPDayOfMonth.swift in Sources */,
 				7C90513A2869D522000D3C86 /* CoreDataPersistenceManager.swift in Sources */,
+				7C73F2B42882BBED00449695 /* MDPMonthYearPicker.swift in Sources */,
+				7C73F2B22882BBED00449695 /* MDPMonthView.swift in Sources */,
+				7C73F2B32882BBED00449695 /* MDPContentView.swift in Sources */,
 				7C903A0B2874688F008028DA /* MultiSelectPickerView.swift in Sources */,
 				7C797CA3287E115C006FF97B /* RetryButton.swift in Sources */,
+				7C73F2B02882BBED00449695 /* MDPMonthYearPickerButton.swift in Sources */,
 				7C3BCDEA2847F729008CDC7D /* ContentView.swift in Sources */,
+				7C73F2B12882BBED00449695 /* MDPDayView.swift in Sources */,
 				7C0A4D9D286B9CC40072DE27 /* PerformanceRow.swift in Sources */,
+				7C73F2AF2882BBED00449695 /* MultiDatePicker.swift in Sources */,
 				7C3BCDF42847F72B008CDC7D /* TheaterSchedule.xcdatamodeld in Sources */,
 				7C905136286887BF000D3C86 /* ErrorHandler.swift in Sources */,
 				7C74753C28762246001F831D /* ViewModel.swift in Sources */,
@@ -271,6 +326,7 @@
 				7C747538287621B0001F831D /* PersistencePresentable.swift in Sources */,
 				7C3BCDE82847F729008CDC7D /* TheaterScheduleApp.swift in Sources */,
 				7C74753A287621ED001F831D /* FirebasePersistenceManager.swift in Sources */,
+				7C73F2B52882BBED00449695 /* MDPModel.swift in Sources */,
 				7C40E347286CD95800BCF464 /* PerformanceFormView.swift in Sources */,
 				7C797C982878C63C006FF97B /* FormViewModel.swift in Sources */,
 				7C40E343286CCE7A00BCF464 /* PerformanceDetailView.swift in Sources */,

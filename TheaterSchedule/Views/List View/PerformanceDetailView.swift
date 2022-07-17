@@ -17,8 +17,10 @@ struct PerformanceDetailView: View {
             VStack(alignment: .leading, spacing: 20 ) {
                 Text(performance.name)
                     .font(.system(size: 50))
+                    .padding()
                 Text(performance.place.rawValue)
                     .font(.system(size: 16))
+                    .padding()
                 List(viewModel.datesForPerformanceString, id: \.self) { date in
                     Text(date)
                 }
@@ -26,14 +28,10 @@ struct PerformanceDetailView: View {
                 
                 Spacer()
             }
-            
         }
-        Spacer()
-        
         .onAppear{
             viewModel.groupingPerformancesBy(performance.name)
         }
-        
     }
 }
 

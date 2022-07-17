@@ -19,13 +19,13 @@ struct PerformancesList: View {
                             PerformanceRow(performance: performance)
                         }
                     }
-                    .onDelete(perform: viewModel.delete)
+                    .onDelete(perform: viewModel.deleteEntity)
                 }
             }
             .navigationTitle(Text("List"))
             .refreshable {
-                viewModel.fetch()
-                print("refreshable")
+                viewModel.fetchPerformancesEntity()
+                print("refreshable enabled")
             }
         }
     }
